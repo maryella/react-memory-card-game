@@ -45,11 +45,11 @@ class App extends Component {
       if (
         this.state.deck[card1Index].symbol != this.state.deck[card2Index].symbol
       ) {
-        newDeck = this.unflipCards(card1Index, card2Index);
+        setTimeout(this.unflipCards.bind(this, card1Index, card2Index), 1000);
       }
       newPickedCards = [];
     }
-    console.log(newDeck);
+    console.log("new deck set:", newDeck);
     this.setState({ deck: newDeck, pickedCards: newPickedCards });
   }
 
@@ -69,7 +69,7 @@ class App extends Component {
       }
       return card;
     });
-    return newDeck;
+    this.setState({ deck: newDeck });
   }
 
   render() {
