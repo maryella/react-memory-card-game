@@ -39,11 +39,12 @@ class App extends Component {
       }
       return card;
     });
-    if (newPickedCards.length == 2) {
+    if (newPickedCards.length === 2) {
       const card1Index = newPickedCards[0];
       const card2Index = newPickedCards[1];
       if (
-        this.state.deck[card1Index].symbol != this.state.deck[card2Index].symbol
+        this.state.deck[card1Index].symbol !==
+        this.state.deck[card2Index].symbol
       ) {
         setTimeout(this.unflipCards.bind(this, card1Index, card2Index), 1000);
       }
@@ -61,10 +62,10 @@ class App extends Component {
     card2.isFlipped = false;
 
     let newDeck = this.state.deck.map((card, index) => {
-      if (index == card1Index) {
+      if (index === card1Index) {
         return card1;
       }
-      if (index == card2Index) {
+      if (index === card2Index) {
         return card2;
       }
       return card;
